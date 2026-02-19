@@ -89,12 +89,13 @@ runs:
     # --- 4. Badge generation ---
     - name: Install badgen
       shell: bash
-      run: npm install -g badgen
+      run: npm install --prefix "$RUNNER_TEMP" badgen
 
     - name: Generate badges
       id: badges
       shell: bash
       env:
+        NODE_PATH: ${{ runner.temp }}/node_modules
         SPEC_COUNT: ${{ steps.specs.outputs.spec_count }}
         REQ_COUNT: ${{ steps.specs.outputs.req_count }}
         OPEN_CHANGES: ${{ steps.changes.outputs.open_changes }}
