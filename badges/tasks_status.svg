@@ -1,20 +1,20 @@
-<svg width="140.8" height="20" viewBox="0 0 1408 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="openspec: 0/0 tasks">
-  <title>openspec: 0/0 tasks</title>
-  <linearGradient id="vzAtp" x2="0" y2="100%">
+<svg width="83.9" height="20" viewBox="0 0 839 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="0/0 tasks">
+  <title>0/0 tasks</title>
+  <linearGradient id="lJOGE" x2="0" y2="100%">
     <stop offset="0" stop-opacity=".1" stop-color="#EEE"/>
     <stop offset="1" stop-opacity=".1"/>
   </linearGradient>
-  <mask id="Ytyhi"><rect width="1408" height="200" rx="30" fill="#FFF"/></mask>
-  <g mask="url(#Ytyhi)">
-    <rect width="791" height="200" fill="#555"/>
-    <rect width="617" height="200" fill="#08C" x="791"/>
-    <rect width="1408" height="200" fill="url(#vzAtp)"/>
+  <mask id="hMmpW"><rect width="839" height="200" rx="30" fill="#FFF"/></mask>
+  <g mask="url(#hMmpW)">
+    <rect width="222" height="200" fill="#555"/>
+    <rect width="617" height="200" fill="#08C" x="222"/>
+    <rect width="839" height="200" fill="url(#lJOGE)"/>
   </g>
   <g aria-hidden="true" fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
-    <text x="230" y="148" textLength="521" fill="#000" opacity="0.25">openspec</text>
-    <text x="220" y="138" textLength="521">openspec</text>
-    <text x="846" y="148" textLength="517" fill="#000" opacity="0.25">0/0 tasks</text>
-    <text x="836" y="138" textLength="517">0/0 tasks</text>
+    <text x="182" y="148" textLength="0" fill="#000" opacity="0.25"></text>
+    <text x="172" y="138" textLength="0"></text>
+    <text x="277" y="148" textLength="517" fill="#000" opacity="0.25">0/0 tasks</text>
+    <text x="267" y="138" textLength="517">0/0 tasks</text>
   </g>
   <image x="40" y="35" width="140" height="130" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5IDUiIHdpZHRoPSIxMyI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTEgMGgydjFIMXpNMCAxaDF2M0gwek0zIDFoMXYzSDN6TTEgNGgydjFIMXpNNiAwaDN2MUg2ek01IDFoMXYxSDV6TTYgMmgydjFINnpNOCAzaDF2MUg4ek01IDRoM3YxSDV6Ii8+PC9zdmc+"/>
 </svg>
