@@ -87,9 +87,9 @@ runs:
         echo "total_tasks=$TOTAL_TASKS" >> $GITHUB_OUTPUT
 
     # --- 4. Badge generation ---
-    - name: Install badgen-cli
+    - name: Install badgen
       shell: bash
-      run: npm install -g badgen-cli
+      run: npm install -g badgen
 
     - name: Generate badges
       id: badges
@@ -103,66 +103,61 @@ runs:
         BADGE_STYLE: ${{ steps.validate.outputs.style }}
         METRICS: ${{ steps.validate.outputs.metrics }}
       run: |
-        # OpenSpec pixel-art logo (OS icon)
-        ICON_SVG='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 5" width="13"><path fill="#fff" d="M1 0h2v1H1zM0 1h1v3H0zM3 1h1v3H3zM1 4h2v1H1zM6 0h3v1H6zM5 1h1v1H5zM6 2h2v1H6zM8 3h1v1H8zM5 4h3v1H5z"/></svg>'
-        ICON_B64=$(echo -n "$ICON_SVG" | base64 -w0)
-        ICON_URI="data:image/svg+xml;base64,$ICON_B64"
-
-        FLAT_FLAG=""
-        if [ "$BADGE_STYLE" = "flat" ]; then
-          FLAT_FLAG="--flat"
-        fi
-
         mkdir -p "$RUNNER_TEMP/badges"
 
-        # Color logic helper
-        badge_color() {
-          local metric="$1"
-          case "$metric" in
-            number_of_specs)
-              [ "$SPEC_COUNT" -gt 0 ] && echo "green" || echo "orange"
-              ;;
-            number_of_requirements)
-              [ "$REQ_COUNT" -gt 0 ] && echo "green" || echo "orange"
-              ;;
-            tasks_status)
-              if [ "$TOTAL_TASKS" -eq 0 ]; then
-                echo "blue"
-              elif [ "$COMPLETED_TASKS" -eq "$TOTAL_TASKS" ]; then
-                echo "green"
-              elif [ "$COMPLETED_TASKS" -gt 0 ]; then
-                echo "orange"
-              else
-                echo "red"
-              fi
-              ;;
-            open_changes)
-              echo "blue"
-              ;;
-          esac
-        }
+        # Generate badges using the badgen library directly (badgen-cli
+        # doesn't pass custom icon data URIs through to the library).
+        node -e '
+          const { badgen } = require("badgen");
+          const fs = require("fs");
+          const path = require("path");
 
-        # Value formatting helper
-        badge_value() {
-          local metric="$1"
-          case "$metric" in
-            number_of_specs)     echo "${SPEC_COUNT} specs" ;;
-            number_of_requirements) echo "${REQ_COUNT} reqs" ;;
-            tasks_status)        echo "${COMPLETED_TASKS}/${TOTAL_TASKS} tasks" ;;
-            open_changes)        echo "${OPEN_CHANGES} changes" ;;
-          esac
-        }
+          const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 5" width="13"><path fill="#fff" d="M1 0h2v1H1zM0 1h1v3H0zM3 1h1v3H3zM1 4h2v1H1zM6 0h3v1H6zM5 1h1v1H5zM6 2h2v1H6zM8 3h1v1H8zM5 4h3v1H5z"/></svg>`;
+          const iconUri = "data:image/svg+xml;base64," + Buffer.from(iconSvg).toString("base64");
 
-        for metric in $METRICS; do
-          VALUE=$(badge_value "$metric")
-          COLOR=$(badge_color "$metric")
-          OUTFILE="$RUNNER_TEMP/badges/${metric}.svg"
+          const specCount = parseInt(process.env.SPEC_COUNT) || 0;
+          const reqCount = parseInt(process.env.REQ_COUNT) || 0;
+          const openChanges = parseInt(process.env.OPEN_CHANGES) || 0;
+          const completedTasks = parseInt(process.env.COMPLETED_TASKS) || 0;
+          const totalTasks = parseInt(process.env.TOTAL_TASKS) || 0;
+          const isFlat = process.env.BADGE_STYLE === "flat";
+          const metrics = process.env.METRICS.split(" ");
+          const outDir = process.env.RUNNER_TEMP + "/badges";
 
-          badgen --subject openspec --status "$VALUE" --color "$COLOR" \
-            --icon "$ICON_URI" --icon-width 14 $FLAT_FLAG > "$OUTFILE"
+          const metricDefs = {
+            number_of_specs: {
+              status: specCount + " specs",
+              color: specCount > 0 ? "green" : "orange"
+            },
+            number_of_requirements: {
+              status: reqCount + " reqs",
+              color: reqCount > 0 ? "green" : "orange"
+            },
+            tasks_status: {
+              status: completedTasks + "/" + totalTasks + " tasks",
+              color: totalTasks === 0 ? "blue" : completedTasks === totalTasks ? "green" : completedTasks > 0 ? "orange" : "red"
+            },
+            open_changes: {
+              status: openChanges + " changes",
+              color: "blue"
+            }
+          };
 
-          echo "Generated: $metric -> $VALUE ($COLOR)"
-        done
+          for (const metric of metrics) {
+            const def = metricDefs[metric];
+            const svg = badgen({
+              subject: "openspec",
+              status: def.status,
+              color: def.color,
+              style: isFlat ? "flat" : "classic",
+              icon: iconUri,
+              iconWidth: 14
+            });
+            const outFile = path.join(outDir, metric + ".svg");
+            fs.writeFileSync(outFile, svg);
+            console.log("Generated: " + metric + " -> " + def.status + " (" + def.color + ")");
+          }
+        '
 
     # --- 5. Badge deployment ---
     - name: Configure git user
