@@ -5,11 +5,11 @@ TBD - created by archiving change badge-generation-and-upload. Update Purpose af
 ## Requirements
 ### Requirement: Generate SVG badge
 
-The action SHALL generate an SVG badge file displaying the collected OpenSpec metrics using `badgen-cli` with the OpenSpec pixel-art logo embedded via the `--icon` flag.
+The action SHALL generate an SVG badge file displaying the collected OpenSpec metrics using the `badgen` library with the OpenSpec pixel-art logo as the subject (no text label, icon only).
 
 #### Scenario: Single metric badge
 - **WHEN** one metric is configured (e.g., `number_of_specs`)
-- **THEN** the action SHALL generate an SVG badge labeled "openspec" with the metric value (e.g., "3 specs")
+- **THEN** the action SHALL generate an SVG badge with only the OpenSpec logo on the left and the metric value on the right (e.g., "4 specs")
 
 #### Scenario: Multiple metrics badge
 - **WHEN** multiple metrics are configured
@@ -17,7 +17,7 @@ The action SHALL generate an SVG badge file displaying the collected OpenSpec me
 
 #### Scenario: Flat style badge
 - **WHEN** `badge_style` is set to `flat`
-- **THEN** the action SHALL pass the `--flat` flag to `badgen-cli`
+- **THEN** the action SHALL use the `flat` style option in badgen
 
 ### Requirement: Badge color coding
 

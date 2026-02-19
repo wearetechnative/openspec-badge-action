@@ -147,7 +147,7 @@ runs:
           for (const metric of metrics) {
             const def = metricDefs[metric];
             const svg = badgen({
-              subject: "openspec",
+              subject: "",
               status: def.status,
               color: def.color,
               style: isFlat ? "flat" : "classic",
