@@ -1,2 +1,2 @@
 # openspec-badge-action
-Generate OpenSpec badge
+Generate OpenSpec badge. Something like this ![](./openspec_badge.svg)
