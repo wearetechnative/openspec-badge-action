@@ -1,20 +1,18 @@
 schema: spec-driven
 
-# Project context (optional)
-# This is shown to AI when creating artifacts.
-# Add your tech stack, conventions, style guides, domain knowledge, etc.
-# Example:
-#   context: |
-#     Tech stack: TypeScript, React, Node.js
-#     We use conventional commits
-#     Domain: e-commerce platform
+context: |
+  GitHub Action (composite) that generates SVG badges showing OpenSpec metrics.
+  Tech stack: Bash, Node.js (inline via node -e), badgen library
+  Badge generation uses the badgen npm library directly (not badgen-cli, which drops custom icons).
+  Badges deploy to gh-pages branch, served via raw.githubusercontent.com.
+  OpenSpec CLI package: @fission-ai/openspec
 
-# Per-artifact rules (optional)
-# Add custom rules for specific artifacts.
-# Example:
-#   rules:
-#     proposal:
-#       - Keep proposals under 500 words
-#       - Always include a "Non-goals" section
-#     tasks:
-#       - Break tasks into chunks of max 2 hours
+rules:
+  specs:
+    - Be explicit about mechanisms, not just outcomes
+    - Specify GitHub Actions context when relevant (runner env, permissions, step outputs)
+  design:
+    - Prefer inline Node.js over complex bash for JSON processing and SVG generation
+    - Document GitHub Actions-specific constraints (composite action limitations, shell requirements)
+  tasks:
+    - Keep tasks scoped to individual action steps or single files
