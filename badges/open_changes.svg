@@ -1,20 +1,20 @@
-<svg width="128.5" height="20" viewBox="0 0 1285 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="openspec: 0 changes">
+<svg width="145.5" height="20" viewBox="0 0 1455 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="openspec: 0 changes">
   <title>openspec: 0 changes</title>
-  <linearGradient id="SxpvA" x2="0" y2="100%">
+  <linearGradient id="vqJqE" x2="0" y2="100%">
     <stop offset="0" stop-opacity=".1" stop-color="#EEE"/>
     <stop offset="1" stop-opacity=".1"/>
   </linearGradient>
-  <mask id="zSNCk"><rect width="1285" height="200" rx="30" fill="#FFF"/></mask>
-  <g mask="url(#zSNCk)">
-    <rect width="621" height="200" fill="#555"/>
-    <rect width="664" height="200" fill="#08C" x="621"/>
-    <rect width="1285" height="200" fill="url(#SxpvA)"/>
+  <mask id="NjaNF"><rect width="1455" height="200" rx="30" fill="#FFF"/></mask>
+  <g mask="url(#NjaNF)">
+    <rect width="791" height="200" fill="#555"/>
+    <rect width="664" height="200" fill="#08C" x="791"/>
+    <rect width="1455" height="200" fill="url(#vqJqE)"/>
   </g>
   <g aria-hidden="true" fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
-    <text x="60" y="148" textLength="521" fill="#000" opacity="0.25">openspec</text>
-    <text x="50" y="138" textLength="521">openspec</text>
-    <text x="676" y="148" textLength="564" fill="#000" opacity="0.25">0 changes</text>
-    <text x="666" y="138" textLength="564">0 changes</text>
+    <text x="230" y="148" textLength="521" fill="#000" opacity="0.25">openspec</text>
+    <text x="220" y="138" textLength="521">openspec</text>
+    <text x="846" y="148" textLength="564" fill="#000" opacity="0.25">0 changes</text>
+    <text x="836" y="138" textLength="564">0 changes</text>
   </g>
-  
+  <image x="40" y="35" width="140" height="130" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5IDUiIHdpZHRoPSIxMyI+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTEgMGgydjFIMXpNMCAxaDF2M0gwek0zIDFoMXYzSDN6TTEgNGgydjFIMXpNNiAwaDN2MUg2ek01IDFoMXYxSDV6TTYgMmgydjFINnpNOCAzaDF2MUg4ek01IDRoM3YxSDV6Ii8+PC9zdmc+"/>
 </svg>
