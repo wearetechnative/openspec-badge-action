@@ -2,8 +2,6 @@
 
 ![specs](https://raw.githubusercontent.com/weAretechnative/openspec-badge-action/gh-pages/badges/number_of_specs.svg) ![requirements](https://raw.githubusercontent.com/weAretechnative/openspec-badge-action/gh-pages/badges/number_of_requirements.svg) ![tasks](https://raw.githubusercontent.com/weAretechnative/openspec-badge-action/gh-pages/badges/tasks_status.svg) ![changes](https://raw.githubusercontent.com/weAretechnative/openspec-badge-action/gh-pages/badges/open_changes.svg)
 
-> **Work in Progress** — This action is under active development and not yet ready for production use.
-
 A GitHub Action that generates an SVG badge showing [OpenSpec](https://openspec.dev) metrics for your repository. The badge displays key project health indicators at a glance:
 
 - **Total specs** — number of specification files
