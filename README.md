@@ -1,7 +1,5 @@
 # openspec-badge-action
 
-![specs](https://raw.githubusercontent.com/weAretechnative/openspec-badge-action/gh-pages/badges/number_of_specs-flat.svg) ![requirements](https://raw.githubusercontent.com/weAretechnative/openspec-badge-action/gh-pages/badges/number_of_requirements-flat.svg) ![tasks](https://raw.githubusercontent.com/weAretechnative/openspec-badge-action/gh-pages/badges/tasks_status-flat.svg) ![changes](https://raw.githubusercontent.com/weAretechnative/openspec-badge-action/gh-pages/badges/open_changes-flat.svg)
-
 ![specs](https://raw.githubusercontent.com/weAretechnative/openspec-badge-action/gh-pages/badges/number_of_specs.svg) ![requirements](https://raw.githubusercontent.com/weAretechnative/openspec-badge-action/gh-pages/badges/number_of_requirements.svg) ![tasks](https://raw.githubusercontent.com/weAretechnative/openspec-badge-action/gh-pages/badges/tasks_status.svg) ![changes](https://raw.githubusercontent.com/weAretechnative/openspec-badge-action/gh-pages/badges/open_changes.svg)
 
 > **Work in Progress** — This action is under active development and not yet ready for production use.
@@ -33,6 +31,7 @@ jobs:
       - uses: weAretechnative/openspec-badge-action@main
         with:
           metric_types: number_of_specs,number_of_requirements,tasks_status,open_changes
+          badge_style: flat
 ```
 
 > **Note:** The action needs `contents: write` permission to push badges to the `gh-pages` branch.
@@ -62,12 +61,6 @@ After the action runs, badges are deployed to the `gh-pages` branch. Reference t
 ![requirements](https://raw.githubusercontent.com/<owner>/<repo>/gh-pages/badges/number_of_requirements.svg)
 ![tasks](https://raw.githubusercontent.com/<owner>/<repo>/gh-pages/badges/tasks_status.svg)
 ![changes](https://raw.githubusercontent.com/<owner>/<repo>/gh-pages/badges/open_changes.svg)
-```
-
-Flat style variants are also available by appending `-flat` to the filename:
-
-```markdown
-![specs](https://raw.githubusercontent.com/<owner>/<repo>/gh-pages/badges/number_of_specs-flat.svg)
 ```
 
 Replace `<owner>/<repo>` with your GitHub repository path.

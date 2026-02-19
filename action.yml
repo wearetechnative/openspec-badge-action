@@ -144,27 +144,19 @@ runs:
             }
           };
 
-          const styles = isFlat ? ["flat"] : ["classic"];
-          // Always generate both styles so users can reference either variant
-          if (!styles.includes("flat")) styles.push("flat");
-          if (!styles.includes("classic")) styles.push("classic");
-
           for (const metric of metrics) {
             const def = metricDefs[metric];
-            for (const style of styles) {
-              const svg = badgen({
-                subject: "",
-                status: def.status,
-                color: def.color,
-                style: style,
-                icon: iconUri,
-                iconWidth: 24
-              });
-              const suffix = style === "classic" ? "" : "-" + style;
-              const outFile = path.join(outDir, metric + suffix + ".svg");
-              fs.writeFileSync(outFile, svg);
-              console.log("Generated: " + metric + suffix + " -> " + def.status + " (" + def.color + ", " + style + ")");
-            }
+            const svg = badgen({
+              subject: "",
+              status: def.status,
+              color: def.color,
+              style: isFlat ? "flat" : "classic",
+              icon: iconUri,
+              iconWidth: 24
+            });
+            const outFile = path.join(outDir, metric + ".svg");
+            fs.writeFileSync(outFile, svg);
+            console.log("Generated: " + metric + " -> " + def.status + " (" + def.color + ")");
           }
         '
 
