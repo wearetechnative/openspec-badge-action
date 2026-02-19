@@ -113,7 +113,7 @@ runs:
           const fs = require("fs");
           const path = require("path");
 
-          const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 5" width="13"><rect x="1" y="0" width=".85" height=".85" fill="#fff"/><rect x="2" y="0" width=".85" height=".85" fill="#fff"/><rect x="0" y="1" width=".85" height=".85" fill="#fff"/><rect x="3" y="1" width=".85" height=".85" fill="#fff"/><rect x="0" y="2" width=".85" height=".85" fill="#fff"/><rect x="3" y="2" width=".85" height=".85" fill="#fff"/><rect x="0" y="3" width=".85" height=".85" fill="#fff"/><rect x="3" y="3" width=".85" height=".85" fill="#fff"/><rect x="1" y="4" width=".85" height=".85" fill="#fff"/><rect x="2" y="4" width=".85" height=".85" fill="#fff"/><rect x="6" y="0" width=".85" height=".85" fill="#fff"/><rect x="7" y="0" width=".85" height=".85" fill="#fff"/><rect x="8" y="0" width=".85" height=".85" fill="#fff"/><rect x="5" y="1" width=".85" height=".85" fill="#fff"/><rect x="6" y="2" width=".85" height=".85" fill="#fff"/><rect x="7" y="2" width=".85" height=".85" fill="#fff"/><rect x="8" y="3" width=".85" height=".85" fill="#fff"/><rect x="5" y="4" width=".85" height=".85" fill="#fff"/><rect x="6" y="4" width=".85" height=".85" fill="#fff"/><rect x="7" y="4" width=".85" height=".85" fill="#fff"/></svg>`;
+          const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 -1 13 7" width="20"><rect x="1" y="0" width=".85" height=".85" fill="#fff"/><rect x="2" y="0" width=".85" height=".85" fill="#fff"/><rect x="0" y="1" width=".85" height=".85" fill="#fff"/><rect x="3" y="1" width=".85" height=".85" fill="#fff"/><rect x="0" y="2" width=".85" height=".85" fill="#fff"/><rect x="3" y="2" width=".85" height=".85" fill="#fff"/><rect x="0" y="3" width=".85" height=".85" fill="#fff"/><rect x="3" y="3" width=".85" height=".85" fill="#fff"/><rect x="1" y="4" width=".85" height=".85" fill="#fff"/><rect x="2" y="4" width=".85" height=".85" fill="#fff"/><rect x="6" y="0" width=".85" height=".85" fill="#fff"/><rect x="7" y="0" width=".85" height=".85" fill="#fff"/><rect x="8" y="0" width=".85" height=".85" fill="#fff"/><rect x="5" y="1" width=".85" height=".85" fill="#fff"/><rect x="6" y="2" width=".85" height=".85" fill="#fff"/><rect x="7" y="2" width=".85" height=".85" fill="#fff"/><rect x="8" y="3" width=".85" height=".85" fill="#fff"/><rect x="5" y="4" width=".85" height=".85" fill="#fff"/><rect x="6" y="4" width=".85" height=".85" fill="#fff"/><rect x="7" y="4" width=".85" height=".85" fill="#fff"/></svg>`;
           const iconUri = "data:image/svg+xml;base64," + Buffer.from(iconSvg).toString("base64");
 
           const specCount = parseInt(process.env.SPEC_COUNT) || 0;
@@ -152,7 +152,7 @@ runs:
               color: def.color,
               style: isFlat ? "flat" : "classic",
               icon: iconUri,
-              iconWidth: 14
+              iconWidth: 24
             });
             const outFile = path.join(outDir, metric + ".svg");
             fs.writeFileSync(outFile, svg);
