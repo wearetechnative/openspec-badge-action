@@ -1,20 +1,20 @@
-<svg width="113.6" height="20" viewBox="0 0 1136 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="openspec: 5 specs">
-  <title>openspec: 5 specs</title>
-  <linearGradient id="CUObc" x2="0" y2="100%">
+<svg width="113.6" height="20" viewBox="0 0 1136 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="openspec: 6 specs">
+  <title>openspec: 6 specs</title>
+  <linearGradient id="rpIDB" x2="0" y2="100%">
     <stop offset="0" stop-opacity=".1" stop-color="#EEE"/>
     <stop offset="1" stop-opacity=".1"/>
   </linearGradient>
-  <mask id="bHJjp"><rect width="1136" height="200" rx="30" fill="#FFF"/></mask>
-  <g mask="url(#bHJjp)">
+  <mask id="sRFzz"><rect width="1136" height="200" rx="30" fill="#FFF"/></mask>
+  <g mask="url(#sRFzz)">
     <rect width="621" height="200" fill="#555"/>
     <rect width="515" height="200" fill="#3C1" x="621"/>
-    <rect width="1136" height="200" fill="url(#CUObc)"/>
+    <rect width="1136" height="200" fill="url(#rpIDB)"/>
   </g>
   <g aria-hidden="true" fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
     <text x="60" y="148" textLength="521" fill="#000" opacity="0.25">openspec</text>
     <text x="50" y="138" textLength="521">openspec</text>
-    <text x="676" y="148" textLength="415" fill="#000" opacity="0.25">5 specs</text>
-    <text x="666" y="138" textLength="415">5 specs</text>
+    <text x="676" y="148" textLength="415" fill="#000" opacity="0.25">6 specs</text>
+    <text x="666" y="138" textLength="415">6 specs</text>
   </g>
   
 </svg>
