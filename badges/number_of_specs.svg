@@ -1,20 +1,20 @@
-<svg width="73.7" height="20" viewBox="0 0 737 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="6 specs">
+<svg width="83.7" height="20" viewBox="0 0 837 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="6 specs">
   <title>6 specs</title>
-  <linearGradient id="iLSij" x2="0" y2="100%">
+  <linearGradient id="mijAm" x2="0" y2="100%">
     <stop offset="0" stop-opacity=".1" stop-color="#EEE"/>
     <stop offset="1" stop-opacity=".1"/>
   </linearGradient>
-  <mask id="WqdSi"><rect width="737" height="200" rx="30" fill="#FFF"/></mask>
-  <g mask="url(#WqdSi)">
-    <rect width="222" height="200" fill="#555"/>
-    <rect width="515" height="200" fill="#3C1" x="222"/>
-    <rect width="737" height="200" fill="url(#iLSij)"/>
+  <mask id="JYTnW"><rect width="837" height="200" rx="30" fill="#FFF"/></mask>
+  <g mask="url(#JYTnW)">
+    <rect width="322" height="200" fill="#555"/>
+    <rect width="515" height="200" fill="#3C1" x="322"/>
+    <rect width="837" height="200" fill="url(#mijAm)"/>
   </g>
   <g aria-hidden="true" fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
-    <text x="182" y="148" textLength="0" fill="#000" opacity="0.25"></text>
-    <text x="172" y="138" textLength="0"></text>
-    <text x="277" y="148" textLength="415" fill="#000" opacity="0.25">6 specs</text>
-    <text x="267" y="138" textLength="415">6 specs</text>
+    <text x="282" y="148" textLength="0" fill="#000" opacity="0.25"></text>
+    <text x="272" y="138" textLength="0"></text>
+    <text x="377" y="148" textLength="415" fill="#000" opacity="0.25">6 specs</text>
+    <text x="367" y="138" textLength="415">6 specs</text>
   </g>
-  <image x="40" y="35" width="140" height="130" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA5IDUiIHdpZHRoPSIxMyI+PHJlY3QgeD0iMSIgeT0iMCIgd2lkdGg9Ii44NSIgaGVpZ2h0PSIuODUiIGZpbGw9IiNmZmYiLz48cmVjdCB4PSIyIiB5PSIwIiB3aWR0aD0iLjg1IiBoZWlnaHQ9Ii44NSIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjAiIHk9IjEiIHdpZHRoPSIuODUiIGhlaWdodD0iLjg1IiBmaWxsPSIjZmZmIi8+PHJlY3QgeD0iMyIgeT0iMSIgd2lkdGg9Ii44NSIgaGVpZ2h0PSIuODUiIGZpbGw9IiNmZmYiLz48cmVjdCB4PSIwIiB5PSIyIiB3aWR0aD0iLjg1IiBoZWlnaHQ9Ii44NSIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjMiIHk9IjIiIHdpZHRoPSIuODUiIGhlaWdodD0iLjg1IiBmaWxsPSIjZmZmIi8+PHJlY3QgeD0iMCIgeT0iMyIgd2lkdGg9Ii44NSIgaGVpZ2h0PSIuODUiIGZpbGw9IiNmZmYiLz48cmVjdCB4PSIzIiB5PSIzIiB3aWR0aD0iLjg1IiBoZWlnaHQ9Ii44NSIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjEiIHk9IjQiIHdpZHRoPSIuODUiIGhlaWdodD0iLjg1IiBmaWxsPSIjZmZmIi8+PHJlY3QgeD0iMiIgeT0iNCIgd2lkdGg9Ii44NSIgaGVpZ2h0PSIuODUiIGZpbGw9IiNmZmYiLz48cmVjdCB4PSI2IiB5PSIwIiB3aWR0aD0iLjg1IiBoZWlnaHQ9Ii44NSIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjciIHk9IjAiIHdpZHRoPSIuODUiIGhlaWdodD0iLjg1IiBmaWxsPSIjZmZmIi8+PHJlY3QgeD0iOCIgeT0iMCIgd2lkdGg9Ii44NSIgaGVpZ2h0PSIuODUiIGZpbGw9IiNmZmYiLz48cmVjdCB4PSI1IiB5PSIxIiB3aWR0aD0iLjg1IiBoZWlnaHQ9Ii44NSIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjYiIHk9IjIiIHdpZHRoPSIuODUiIGhlaWdodD0iLjg1IiBmaWxsPSIjZmZmIi8+PHJlY3QgeD0iNyIgeT0iMiIgd2lkdGg9Ii44NSIgaGVpZ2h0PSIuODUiIGZpbGw9IiNmZmYiLz48cmVjdCB4PSI4IiB5PSIzIiB3aWR0aD0iLjg1IiBoZWlnaHQ9Ii44NSIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjUiIHk9IjQiIHdpZHRoPSIuODUiIGhlaWdodD0iLjg1IiBmaWxsPSIjZmZmIi8+PHJlY3QgeD0iNiIgeT0iNCIgd2lkdGg9Ii44NSIgaGVpZ2h0PSIuODUiIGZpbGw9IiNmZmYiLz48cmVjdCB4PSI3IiB5PSI0IiB3aWR0aD0iLjg1IiBoZWlnaHQ9Ii44NSIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg=="/>
+  <image x="40" y="35" width="240" height="130" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0yIC0xIDEzIDciIHdpZHRoPSIyMCI+PHJlY3QgeD0iMSIgeT0iMCIgd2lkdGg9Ii44NSIgaGVpZ2h0PSIuODUiIGZpbGw9IiNmZmYiLz48cmVjdCB4PSIyIiB5PSIwIiB3aWR0aD0iLjg1IiBoZWlnaHQ9Ii44NSIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjAiIHk9IjEiIHdpZHRoPSIuODUiIGhlaWdodD0iLjg1IiBmaWxsPSIjZmZmIi8+PHJlY3QgeD0iMyIgeT0iMSIgd2lkdGg9Ii44NSIgaGVpZ2h0PSIuODUiIGZpbGw9IiNmZmYiLz48cmVjdCB4PSIwIiB5PSIyIiB3aWR0aD0iLjg1IiBoZWlnaHQ9Ii44NSIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjMiIHk9IjIiIHdpZHRoPSIuODUiIGhlaWdodD0iLjg1IiBmaWxsPSIjZmZmIi8+PHJlY3QgeD0iMCIgeT0iMyIgd2lkdGg9Ii44NSIgaGVpZ2h0PSIuODUiIGZpbGw9IiNmZmYiLz48cmVjdCB4PSIzIiB5PSIzIiB3aWR0aD0iLjg1IiBoZWlnaHQ9Ii44NSIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjEiIHk9IjQiIHdpZHRoPSIuODUiIGhlaWdodD0iLjg1IiBmaWxsPSIjZmZmIi8+PHJlY3QgeD0iMiIgeT0iNCIgd2lkdGg9Ii44NSIgaGVpZ2h0PSIuODUiIGZpbGw9IiNmZmYiLz48cmVjdCB4PSI2IiB5PSIwIiB3aWR0aD0iLjg1IiBoZWlnaHQ9Ii44NSIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjciIHk9IjAiIHdpZHRoPSIuODUiIGhlaWdodD0iLjg1IiBmaWxsPSIjZmZmIi8+PHJlY3QgeD0iOCIgeT0iMCIgd2lkdGg9Ii44NSIgaGVpZ2h0PSIuODUiIGZpbGw9IiNmZmYiLz48cmVjdCB4PSI1IiB5PSIxIiB3aWR0aD0iLjg1IiBoZWlnaHQ9Ii44NSIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjYiIHk9IjIiIHdpZHRoPSIuODUiIGhlaWdodD0iLjg1IiBmaWxsPSIjZmZmIi8+PHJlY3QgeD0iNyIgeT0iMiIgd2lkdGg9Ii44NSIgaGVpZ2h0PSIuODUiIGZpbGw9IiNmZmYiLz48cmVjdCB4PSI4IiB5PSIzIiB3aWR0aD0iLjg1IiBoZWlnaHQ9Ii44NSIgZmlsbD0iI2ZmZiIvPjxyZWN0IHg9IjUiIHk9IjQiIHdpZHRoPSIuODUiIGhlaWdodD0iLjg1IiBmaWxsPSIjZmZmIi8+PHJlY3QgeD0iNiIgeT0iNCIgd2lkdGg9Ii44NSIgaGVpZ2h0PSIuODUiIGZpbGw9IiNmZmYiLz48cmVjdCB4PSI3IiB5PSI0IiB3aWR0aD0iLjg1IiBoZWlnaHQ9Ii44NSIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg=="/>
 </svg>
