@@ -1,0 +1,20 @@
+<svg width="113.9" height="20" viewBox="0 0 1139 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="openspec: 15 reqs">
+  <title>openspec: 15 reqs</title>
+  <linearGradient id="FmdlC" x2="0" y2="100%">
+    <stop offset="0" stop-opacity=".1" stop-color="#EEE"/>
+    <stop offset="1" stop-opacity=".1"/>
+  </linearGradient>
+  <mask id="BVuqS"><rect width="1139" height="200" rx="30" fill="#FFF"/></mask>
+  <g mask="url(#BVuqS)">
+    <rect width="621" height="200" fill="#555"/>
+    <rect width="518" height="200" fill="#3C1" x="621"/>
+    <rect width="1139" height="200" fill="url(#FmdlC)"/>
+  </g>
+  <g aria-hidden="true" fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
+    <text x="60" y="148" textLength="521" fill="#000" opacity="0.25">openspec</text>
+    <text x="50" y="138" textLength="521">openspec</text>
+    <text x="676" y="148" textLength="418" fill="#000" opacity="0.25">15 reqs</text>
+    <text x="666" y="138" textLength="418">15 reqs</text>
+  </g>
+  
+</svg>
