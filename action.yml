@@ -1,0 +1,220 @@
+name: OpenSpec Badge
+description: Generate SVG badges showing OpenSpec metrics for your repository
+
+branding:
+  icon: award
+  color: green
+
+inputs:
+  metric_types:
+    description: >
+      Comma-separated list of metrics to display.
+      Supported: number_of_specs, number_of_requirements, tasks_status, open_changes
+    required: false
+    default: 'number_of_specs,number_of_requirements,tasks_status,open_changes'
+  badge_style:
+    description: 'Badge visual style: classic (gradient) or flat (solid)'
+    required: false
+    default: 'classic'
+
+runs:
+  using: composite
+  steps:
+    # --- 1. Input validation ---
+    - name: Validate inputs
+      id: validate
+      shell: bash
+      run: |
+        SUPPORTED_METRICS="number_of_specs number_of_requirements tasks_status open_changes"
+        IFS=',' read -ra METRICS <<< "${{ inputs.metric_types }}"
+        for metric in "${METRICS[@]}"; do
+          metric=$(echo "$metric" | xargs)  # trim whitespace
+          if ! echo "$SUPPORTED_METRICS" | grep -qw "$metric"; then
+            echo "::error::Invalid metric type: '$metric'. Supported: $SUPPORTED_METRICS"
+            exit 1
+          fi
+        done
+
+        STYLE="${{ inputs.badge_style }}"
+        if [[ "$STYLE" != "classic" && "$STYLE" != "flat" ]]; then
+          echo "::error::Invalid badge_style: '$STYLE'. Supported: classic, flat"
+          exit 1
+        fi
+
+        echo "metrics=${METRICS[*]}" >> $GITHUB_OUTPUT
+        echo "style=$STYLE" >> $GITHUB_OUTPUT
+
+    # --- 2. OpenSpec CLI setup ---
+    - name: Install OpenSpec CLI
+      shell: bash
+      run: |
+        if ! command -v openspec &> /dev/null; then
+          echo "Installing OpenSpec CLI..."
+          npm install -g @fission-ai/openspec
+        else
+          echo "OpenSpec CLI already available: $(openspec --version)"
+        fi
+
+    - name: Verify OpenSpec project
+      shell: bash
+      run: |
+        if [ ! -f "openspec/config.yaml" ]; then
+          echo "::error::No openspec/config.yaml found. This repository is not an OpenSpec project."
+          exit 1
+        fi
+
+    # --- 3. Metrics collection ---
+    - name: Collect spec metrics
+      id: specs
+      shell: bash
+      run: |
+        SPECS_JSON=$(openspec spec list --json 2>/dev/null || echo "[]")
+        SPEC_COUNT=$(echo "$SPECS_JSON" | node -p 'JSON.parse(require("fs").readFileSync(0,"utf8")).length')
+        REQ_COUNT=$(echo "$SPECS_JSON" | node -p 'JSON.parse(require("fs").readFileSync(0,"utf8")).reduce((s,x)=>s+(x.requirementCount||0),0)')
+        echo "spec_count=$SPEC_COUNT" >> $GITHUB_OUTPUT
+        echo "req_count=$REQ_COUNT" >> $GITHUB_OUTPUT
+
+    - name: Collect change metrics
+      id: changes
+      shell: bash
+      run: |
+        CHANGES_JSON=$(openspec list --changes --json 2>/dev/null | node -p 'JSON.stringify(JSON.parse(require("fs").readFileSync(0,"utf8")).changes || [])')
+        OPEN_CHANGES=$(echo "$CHANGES_JSON" | node -p 'JSON.parse(require("fs").readFileSync(0,"utf8")).length')
+        COMPLETED_TASKS=$(echo "$CHANGES_JSON" | node -p 'JSON.parse(require("fs").readFileSync(0,"utf8")).reduce((s,x)=>s+(x.completedTasks||0),0)')
+        TOTAL_TASKS=$(echo "$CHANGES_JSON" | node -p 'JSON.parse(require("fs").readFileSync(0,"utf8")).reduce((s,x)=>s+(x.totalTasks||0),0)')
+        echo "open_changes=$OPEN_CHANGES" >> $GITHUB_OUTPUT
+        echo "completed_tasks=$COMPLETED_TASKS" >> $GITHUB_OUTPUT
+        echo "total_tasks=$TOTAL_TASKS" >> $GITHUB_OUTPUT
+
+    # --- 4. Badge generation ---
+    - name: Install badgen-cli
+      shell: bash
+      run: npm install -g badgen-cli
+
+    - name: Generate badges
+      id: badges
+      shell: bash
+      env:
+        SPEC_COUNT: ${{ steps.specs.outputs.spec_count }}
+        REQ_COUNT: ${{ steps.specs.outputs.req_count }}
+        OPEN_CHANGES: ${{ steps.changes.outputs.open_changes }}
+        COMPLETED_TASKS: ${{ steps.changes.outputs.completed_tasks }}
+        TOTAL_TASKS: ${{ steps.changes.outputs.total_tasks }}
+        BADGE_STYLE: ${{ steps.validate.outputs.style }}
+        METRICS: ${{ steps.validate.outputs.metrics }}
+      run: |
+        # OpenSpec pixel-art logo (OS icon)
+        ICON_SVG='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 5" width="13"><path fill="#fff" d="M1 0h2v1H1zM0 1h1v3H0zM3 1h1v3H3zM1 4h2v1H1zM6 0h3v1H6zM5 1h1v1H5zM6 2h2v1H6zM8 3h1v1H8zM5 4h3v1H5z"/></svg>'
+        ICON_B64=$(echo -n "$ICON_SVG" | base64 -w0)
+        ICON_URI="data:image/svg+xml;base64,$ICON_B64"
+
+        FLAT_FLAG=""
+        if [ "$BADGE_STYLE" = "flat" ]; then
+          FLAT_FLAG="--flat"
+        fi
+
+        mkdir -p "$RUNNER_TEMP/badges"
+
+        # Color logic helper
+        badge_color() {
+          local metric="$1"
+          case "$metric" in
+            number_of_specs)
+              [ "$SPEC_COUNT" -gt 0 ] && echo "green" || echo "orange"
+              ;;
+            number_of_requirements)
+              [ "$REQ_COUNT" -gt 0 ] && echo "green" || echo "orange"
+              ;;
+            tasks_status)
+              if [ "$TOTAL_TASKS" -eq 0 ]; then
+                echo "blue"
+              elif [ "$COMPLETED_TASKS" -eq "$TOTAL_TASKS" ]; then
+                echo "green"
+              elif [ "$COMPLETED_TASKS" -gt 0 ]; then
+                echo "orange"
+              else
+                echo "red"
+              fi
+              ;;
+            open_changes)
+              echo "blue"
+              ;;
+          esac
+        }
+
+        # Value formatting helper
+        badge_value() {
+          local metric="$1"
+          case "$metric" in
+            number_of_specs)     echo "${SPEC_COUNT} specs" ;;
+            number_of_requirements) echo "${REQ_COUNT} reqs" ;;
+            tasks_status)        echo "${COMPLETED_TASKS}/${TOTAL_TASKS} tasks" ;;
+            open_changes)        echo "${OPEN_CHANGES} changes" ;;
+          esac
+        }
+
+        for metric in $METRICS; do
+          VALUE=$(badge_value "$metric")
+          COLOR=$(badge_color "$metric")
+          OUTFILE="$RUNNER_TEMP/badges/${metric}.svg"
+
+          badgen --subject openspec --status "$VALUE" --color "$COLOR" \
+            --icon "$ICON_URI" --icon-width 14 $FLAT_FLAG > "$OUTFILE"
+
+          echo "Generated: $metric -> $VALUE ($COLOR)"
+        done
+
+    # --- 5. Badge deployment ---
+    - name: Configure git user
+      shell: bash
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+    - name: Deploy badges
+      shell: bash
+      env:
+        RETRY_LIMIT: "3"
+        REF_NAME: ${{ github.ref_name }}
+      run: |
+        # Ensure clean working tree before branch operations
+        git stash --include-untracked 2>/dev/null || true
+
+        # Create gh-pages branch if it doesn't exist on the remote
+        if ! git ls-remote --exit-code --heads origin gh-pages > /dev/null 2>&1; then
+          echo "Creating orphan gh-pages branch..."
+          git checkout --orphan gh-pages
+          git rm -rf . 2>/dev/null || true
+          git commit --allow-empty -m "Initial commit for badges"
+          git push -u origin gh-pages
+        fi
+
+        for attempt in $(seq 1 $RETRY_LIMIT); do
+          echo "Deploy attempt $attempt/$RETRY_LIMIT"
+
+          git fetch origin gh-pages
+          git checkout -f gh-pages
+          git reset --hard origin/gh-pages
+
+          mkdir -p badges
+          cp "$RUNNER_TEMP/badges/"*.svg badges/
+
+          git add badges/
+          if git diff --cached --quiet; then
+            echo "No badge changes to commit"
+            break
+          fi
+
+          git commit -m "Update OpenSpec badges [skip ci]"
+          if git push origin gh-pages; then
+            echo "Badges deployed successfully"
+            break
+          fi
+
+          echo "Push failed, retrying..."
+          sleep 2
+        done
+
+        # Checkout back to the original ref
+        git checkout -f "$REF_NAME"
+        git stash pop 2>/dev/null || true

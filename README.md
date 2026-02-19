@@ -1,5 +1,7 @@
 # openspec-badge-action
 
+![specs](https://raw.githubusercontent.com/weAretechnative/openspec-badge-action/gh-pages/badges/number_of_specs.svg) ![requirements](https://raw.githubusercontent.com/weAretechnative/openspec-badge-action/gh-pages/badges/number_of_requirements.svg) ![tasks](https://raw.githubusercontent.com/weAretechnative/openspec-badge-action/gh-pages/badges/tasks_status.svg) ![changes](https://raw.githubusercontent.com/weAretechnative/openspec-badge-action/gh-pages/badges/open_changes.svg)
+
 > **Work in Progress** — This action is under active development and not yet ready for production use.
 
 A GitHub Action that generates an SVG badge showing [OpenSpec](https://openspec.dev) metrics for your repository. The badge displays key project health indicators at a glance:
@@ -22,6 +24,8 @@ on:
 jobs:
   badge:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: weAretechnative/openspec-badge-action@main
@@ -29,11 +33,14 @@ jobs:
           metric_types: number_of_specs,number_of_requirements,tasks_status,open_changes
 ```
 
+> **Note:** The action needs `contents: write` permission to push badges to the `gh-pages` branch.
+
 ## Configuration
 
-| Input | Description |
-|-------|-------------|
-| `metric_types` | Comma-separated list of metrics to display on the badge |
+| Input | Description | Default |
+|-------|-------------|---------|
+| `metric_types` | Comma-separated list of metrics to display | All metrics |
+| `badge_style` | Badge visual style: `classic` (gradient) or `flat` (solid) | `classic` |
 
 ### Supported metric types
 
@@ -43,6 +50,19 @@ jobs:
 | `number_of_requirements` | Total number of requirements across all specs |
 | `tasks_status` | Ratio of completed vs. open tasks |
 | `open_changes` | Number of active (non-archived) changes |
+
+## Displaying badges
+
+After the action runs, badges are deployed to the `gh-pages` branch. Reference them in your README using:
+
+```markdown
+![specs](https://raw.githubusercontent.com/<owner>/<repo>/gh-pages/badges/number_of_specs.svg)
+![requirements](https://raw.githubusercontent.com/<owner>/<repo>/gh-pages/badges/number_of_requirements.svg)
+![tasks](https://raw.githubusercontent.com/<owner>/<repo>/gh-pages/badges/tasks_status.svg)
+![changes](https://raw.githubusercontent.com/<owner>/<repo>/gh-pages/badges/open_changes.svg)
+```
+
+Replace `<owner>/<repo>` with your GitHub repository path.
 
 ## License
 
