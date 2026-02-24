@@ -1,8 +1,5 @@
-# badge-generation Specification
+## MODIFIED Requirements
 
-## Purpose
-TBD - created by archiving change badge-generation-and-upload. Update Purpose after archive.
-## Requirements
 ### Requirement: Generate SVG badge
 
 The action SHALL generate an SVG badge file displaying the collected OpenSpec metrics using the `badgen` library with the official OpenSpec icon as the subject. The subject SHALL include "OpenSpec" text when `show_label` is true, or only the icon when `show_label` is false (default).
@@ -26,16 +23,3 @@ The action SHALL generate an SVG badge file displaying the collected OpenSpec me
 #### Scenario: Badge without label text
 - **WHEN** `show_label` is false or not provided
 - **THEN** the badge subject SHALL contain only the icon with no text
-
-### Requirement: Badge color coding
-
-The badge SHALL use color to indicate project health.
-
-#### Scenario: Good health
-- **WHEN** the metric values indicate healthy project state (specs exist, tasks progressing)
-- **THEN** the badge SHALL use green coloring
-
-#### Scenario: Needs attention
-- **WHEN** the metric values indicate the project needs attention (no specs, many open tasks)
-- **THEN** the badge SHALL use orange or red coloring
-
