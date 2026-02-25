@@ -36,19 +36,19 @@ jobs:
 
 ## Configuration
 
-| Input | Description | Default |
-|-------|-------------|---------|
-| `metric_types` | Comma-separated list of metrics to display | All metrics |
-| `badge_style` | Badge visual style: `classic` (gradient) or `flat` (solid) | `classic` |
+| Input          | Description                                                | Default     |
+|:---------------|:-----------------------------------------------------------|:------------|
+| `metric_types` | Comma-separated list of metrics to display                 | All metrics |
+| `badge_style`  | Badge visual style: `classic` (gradient) or `flat` (solid) | `classic`   |
 
 ### Supported metric types
 
-| Metric | Description |
-|--------|-------------|
-| `number_of_specs` | Total number of spec files |
+| Metric                   | Description                                   |
+|:-------------------------|:----------------------------------------------|
+| `number_of_specs`        | Total number of spec files                    |
 | `number_of_requirements` | Total number of requirements across all specs |
-| `tasks_status` | Ratio of completed vs. open tasks |
-| `open_changes` | Number of active (non-archived) changes |
+| `tasks_status`           | Ratio of completed vs. open tasks             |
+| `open_changes`           | Number of active (non-archived) changes       |
 
 ## Displaying badges
 
@@ -62,6 +62,17 @@ After the action runs, badges are deployed to the `gh-pages` branch. Reference t
 ```
 
 Replace `<owner>/<repo>` with your GitHub repository path.
+
+## Badge Showcase
+
+The action supports different visual styles and label options. Here are all available badge variants:
+
+| Metric Type | Classic (unlabeled) | Classic (labeled) | Flat (unlabeled) | Flat (labeled) |
+|-------------|---------------------|-------------------|------------------|----------------|
+| **Specs** | ![](examples/badges/specs_classic_unlabeled.svg) | ![](examples/badges/specs_classic_labeled.svg) | ![](examples/badges/specs_flat_unlabeled.svg) | ![](examples/badges/specs_flat_labeled.svg) |
+| **Requirements** | ![](examples/badges/requirements_classic_unlabeled.svg) | ![](examples/badges/requirements_classic_labeled.svg) | ![](examples/badges/requirements_flat_unlabeled.svg) | ![](examples/badges/requirements_flat_labeled.svg) |
+| **Tasks** | ![](examples/badges/tasks_classic_unlabeled.svg) | ![](examples/badges/tasks_classic_labeled.svg) | ![](examples/badges/tasks_flat_unlabeled.svg) | ![](examples/badges/tasks_flat_labeled.svg) |
+| **Changes** | ![](examples/badges/changes_classic_unlabeled.svg) | ![](examples/badges/changes_classic_labeled.svg) | ![](examples/badges/changes_flat_unlabeled.svg) | ![](examples/badges/changes_flat_labeled.svg) |
 
 ## License
 

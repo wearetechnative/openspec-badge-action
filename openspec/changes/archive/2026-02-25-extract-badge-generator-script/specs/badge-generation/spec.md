@@ -1,8 +1,7 @@
-# badge-generation Specification
+# badge-generation Specification (Delta)
 
-## Purpose
-TBD - created by archiving change badge-generation-and-upload. Update Purpose after archive.
-## Requirements
+## MODIFIED Requirements
+
 ### Requirement: Generate SVG badge
 The action SHALL generate an SVG badge file displaying the collected OpenSpec metrics using the `badgen` library with the official OpenSpec icon as the subject. Badge generation SHALL be performed by calling the scripts/badge-generator.js script rather than inline Node.js code. The subject SHALL include "OpenSpec" text when `show_label` is true, or only the icon when `show_label` is false (default).
 
@@ -36,4 +35,3 @@ The badge SHALL use color to indicate project health. Color selection SHALL be h
 #### Scenario: Needs attention
 - **WHEN** the metric values indicate the project needs attention (no specs, many open tasks)
 - **THEN** scripts/badge-generator.js SHALL generate a badge using orange or red coloring
-

@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "badgen": "^3.2.3"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.js"
+  }
+}
