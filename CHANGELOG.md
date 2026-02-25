@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.1.0] - 2026-02-25
+- New improved official OpenSpec logo
+- Add badge showcase and extract badge generator to shared script
+- Add show_label configuration 
+
 ## [1.0.0] - 2026-02-19
 
 ### Added

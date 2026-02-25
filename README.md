@@ -40,6 +40,7 @@ jobs:
 |:---------------|:-----------------------------------------------------------|:------------|
 | `metric_types` | Comma-separated list of metrics to display                 | All metrics |
 | `badge_style`  | Badge visual style: `classic` (gradient) or `flat` (solid) | `classic`   |
+| `show_label`   | Show "OpenSpec" text label in badge (`true` or `false`)   | `false`     |
 
 ### Supported metric types
 
