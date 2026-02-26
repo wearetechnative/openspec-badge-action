@@ -117,12 +117,13 @@ runs:
         BADGE_STYLE: ${{ steps.validate.outputs.style }}
         METRICS: ${{ steps.validate.outputs.metrics }}
         SHOW_LABEL: ${{ steps.validate.outputs.show_label }}
+        ACTION_PATH: ${{ github.action_path }}
       run: |
         mkdir -p "$RUNNER_TEMP/badges"
 
-        # Generate badges using the badge-generator.js script
+        # Generate badges using the bundled badge-generator.js script
         for metric in $METRICS; do
-          node scripts/badge-generator.js \
+          node "$ACTION_PATH/scripts/badge-generator.js" \
             --metric "$metric" \
             --spec-count "$SPEC_COUNT" \
             --req-count "$REQ_COUNT" \
