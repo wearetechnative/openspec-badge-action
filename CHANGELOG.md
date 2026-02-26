@@ -1,5 +1,8 @@
 # Changelog
 
+## [1.1.1] - 2026-02-26
+- Fix relative path to badge-generator.js
+
 ## [1.1.0] - 2026-02-25
 - New improved official OpenSpec logo
 - Add badge showcase and extract badge generator to shared script
